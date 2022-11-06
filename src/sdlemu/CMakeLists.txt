@@ -1,0 +1,1 @@
+add_library(sdlemu sdlemu_filter.cpp)

@@ -68,16 +68,16 @@ OBJS = \
 		obj/ram.o \
 		obj/rom.o \
 		obj/susie.o \
-		obj/system.o \
-		obj/errorhandler.o \
-		obj/unzip.o \
-		obj/sdlemu_filter.o \
+		obj/system.o \ 
+		obj/errorhandler.o \ x
+		obj/unzip.o \  x
+		obj/sdlemu_filter.o \ x
 		obj/handy_sdl_main.o \
 		obj/handy_sdl_handling.o \
 		obj/handy_sdl_graphics.o \
 		obj/handy_sdl_sound.o \
-		obj/gui.o \
-		obj/font.o
+		obj/gui.o \ x
+		obj/font.o x
 
 all: obj $(TARGET)$(EXESUFFIX)
 	@echo "*** Looks like it compiled OK... Give it a whirl!"

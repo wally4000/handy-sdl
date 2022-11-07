@@ -23,14 +23,14 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <dirent.h>
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include <errno.h>
 
 #include "gui.h"
 #include "font.h"
 
-#include "../handy_sdl_main.h"
-#include "../handy_sdl_graphics.h"
+#include "handy_sdl_main.h"
+#include "handy_sdl_graphics.h"
 
 /* defines and macros */
 #define MAX__PATH 1024

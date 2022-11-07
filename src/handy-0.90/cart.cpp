@@ -52,7 +52,7 @@
 #include <cstring>
 #include "system.h"
 #include "cart.h"
-#include "./zlib-113/zlib.h"
+#include "zlib.h"
 
 
 CCart::CCart(UBYTE *gamedata,ULONG gamesize)

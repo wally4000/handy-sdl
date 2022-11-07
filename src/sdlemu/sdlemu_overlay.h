@@ -19,7 +19,7 @@
 #ifndef __SDLEMU_OVERLAY_H__
 #define __SDLEMU_OVERLAY_H__
 
-#include "SDL/SDL.h"
+#include "SDL.h"
 #include "sdlemu_system.h"
 
 SDL_Overlay	    *overlay;

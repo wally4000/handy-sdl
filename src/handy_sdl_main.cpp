@@ -61,9 +61,9 @@
 #include <cctype>
 #include <unistd.h>
 #include <dirent.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_main.h>
-#include <SDL/SDL_timer.h>
+#include <SDL.h>
+#include <SDL_main.h>
+#include <SDL_timer.h>
 
 #include "handy_sdl_main.h"
 #include "handy_sdl_graphics.h"
@@ -384,7 +384,7 @@ int main(int argc, char *argv[])
     getcwd(load_filename, 512);
     sprintf(bios_path_and_name, "%s/%s", load_filename, "lynxboot.img");
 
-    gAudioEnabled = FALSE; // Disable audio by default for Zipit
+    gAudioEnabled = TRUE; // Disable audio by default for Zipit
 
     // Default output
     printf("Handy GCC/SDL Portable Atari Lynx Emulator %s\n", HANDY_SDL_VERSION);

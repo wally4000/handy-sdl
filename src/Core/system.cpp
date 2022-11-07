@@ -59,8 +59,8 @@
 #include <string.h>
 #include "system.h"
 #include "error.h"
-#include "./zlib-113/zlib.h"
-#include "./zlib-113/unzip.h"
+#include "zlib.h"
+#include "unzip.h"
 
 
 // The following is needed since GCC doesn't seem to understand the _splitpath function.

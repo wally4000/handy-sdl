@@ -29,11 +29,11 @@
 //                            Copyright (c) 1996,1997                       //
 //                                  K. Wilkins                              //
 //////////////////////////////////////////////////////////////////////////////
-// handy_sdl_handling.h                                                     //
+// handy_sdl_sound.h                                                         //
 //////////////////////////////////////////////////////////////////////////////
 //                                                                          //
-// This is the Handy/SDL handling header file. It manages the handling      //
-// functions for emulating the Atari Lynx emulator using the SDL Library.   //
+// This is the Handy/SDL sound header file. It manages the sound functions  //
+// for emulating the Atari Lynx emulator using the SDL Library.             //
 //                                                                          //
 //    N. Wagenaar                                                           //
 // December 2005                                                            //
@@ -53,16 +53,19 @@
 //  closed source version.                                                  //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef __HANDY_SDL_HANDLING_H__
-#define __HANDY_SDL_HANDLING_H__
+#ifndef __HANDY_SDL_SOUND_H__
+#define __HANDY_SDL_SOUND_H__
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_main.h>
-#include <SDL/SDL_timer.h>
+#include <SDL.h>
+#include <SDL_main.h>
+#include <SDL_timer.h>
  
-int		handy_sdl_on_key_up(SDL_KeyboardEvent key, int mask);
-int		handy_sdl_on_key_down(SDL_KeyboardEvent key, int mask);
+//#include "handy_sdl_main.h"
+
+int handy_sdl_audio_init(void);
+void handy_sdl_audio_callback(void *userdata, Uint8 *stream, int len);
+
 #endif

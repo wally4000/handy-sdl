@@ -80,6 +80,9 @@ int BT_B = SDLK_p;						// p
     #define BT_OPT2     SDLK_u			// u
     #define BT_OFF      SDLK_ESCAPE		// Smiley/ESC
 #else
+// Temporary BT_A / BT_B definition
+int BT_A = SDLK_o;						// o
+int BT_B = SDLK_p;						// p
     #define BT_LEFT     SDLK_LEFT
     #define BT_RIGHT    SDLK_RIGHT
     #define BT_UP       SDLK_UP

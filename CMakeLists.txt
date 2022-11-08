@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.14)
 
 message(${SDL_LIBRARIES})
 
-add_compile_definitions(SDL_PATCH ANSI_GCC DINGUX )
+add_compile_definitions(SDL_PATCH ANSI_GCC )
 add_library(Core src/Core/cart.cpp src/Core/memmap.cpp src/Core/mikie.cpp src/Core/ram.cpp src/Core/rom.cpp src/Core/susie.cpp src/Core/system.cpp)
 add_library(sdlemu  src/sdlemu/handy_sdl_graphics.cpp src/sdlemu/handy_sdl_handling.cpp src/sdlemu/handy_sdl_sound.cpp src/sdlemu/sdlemu_filter.cpp src/sdlemu/sdlemu_opengl.c src/sdlemu/sdlemu_overlay.c src/sdlemu/sdlemu_video.c )
 add_library(gui src/gui/font.cpp src/gui/gui.cpp)

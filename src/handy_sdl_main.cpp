@@ -70,9 +70,9 @@
 #include "handy_sdl_handling.h"
 #include "handy_sdl_sound.h"
 #include "handy_sdl_usage.h"
-#ifdef DINGUX
+
 #include "gui/gui.h"
-#endif
+
 
 /* SDL declarations */
 SDL_Surface        *HandyBuffer;             // Our Handy/SDL display buffer
@@ -87,7 +87,7 @@ int                 mpBpp;                    // Lynx rendering bpp
 /* Handy/SDL declarations */
 int                 LynxWidth;                // Lynx SDL screen width
 int                 LynxHeight;              // Lynx SDL screen height
-int                LynxScale = 1;            // Factor to scale the display
+int                LynxScale = 4;            // Factor to scale the display
 int                LynxLCD = 1;            // Emulate LCD Display
 int              LynxFormat;                // Lynx ROM format type
 int              LynxRotate;                // Lynx ROM rotation type
@@ -106,7 +106,7 @@ Uint8          *delta;
 
     Default = 1 (SDL)
 */
-int                rendertype = 1;
+int                rendertype = 2;
 
 /*
     Handy/SDL Scaling/Scanline routine
@@ -131,7 +131,7 @@ int                stype = 1;                // Scaling/Scanline routine.
     Default = 1 (SDLEmu v1)
 */
 
-int                filter = 0;                // Scaling/Scanline routine.
+int                filter = 6;                // Scaling/Scanline routine.
 
 
 /*
@@ -371,9 +371,9 @@ int main(int argc, char *argv[])
     int       bpp = 16;        // dingux has 16 hardcoded
 #else
     int       bpp = 16;         // BPP -> 8,16 or 32. 0 = autodetect (default)
-    int       fsaa = 0;        // OpenGL FSAA (default off)
+    int       fsaa = 1;        // OpenGL FSAA (default off)
     int       accel = 1;       // OpenGL Hardware accel (default on)
-    int       sync  = 0;       // OpenGL VSYNC (default off)
+    int       sync  = 1;       // OpenGL VSYNC (default off)
     int       overlay = 1;     // YUV Overlay format
     char      overlaytype[4];  // Overlay Format
 #endif
@@ -395,17 +395,13 @@ int main(int argc, char *argv[])
     // If no argument given - call filebrowser
     // As SDL is not initialized yet, gui_LoadFile calls gui_video_early_init()
     if (argc < 2) {
-#ifdef DINGUX
         if(gui_LoadFile(load_filename))  {
             romname = (char *)&load_filename;
         } else {
             handy_sdl_usage();
             exit(EXIT_FAILURE);
         }
-#else
-        handy_sdl_usage();
-        exit(EXIT_FAILURE);
-#endif
+
     }
 
     for ( i=0; (i < argc || argv[i] != NULL ); i++ )
@@ -557,9 +553,9 @@ int main(int argc, char *argv[])
     handy_sdl_video_init(mpBpp);
 
     // Init gui (move to some other place later)
-#ifdef DINGUX
+
     gui_Init();
-#endif
+
 
     handy_sdl_start_time = SDL_GetTicks();
 
@@ -579,7 +575,7 @@ int main(int argc, char *argv[])
                     KeyMask = handy_sdl_on_key_up(handy_sdl_event.key, KeyMask);
                     break;
                 case SDL_KEYDOWN:
-                    #ifdef DINGUX
+    
                     if(handy_sdl_event.key.keysym.sym == SDLK_BACKSPACE) {
                         //filter = (filter + 1) % 11;
                         if(filter != 6) filter = 6; else filter = 0;
@@ -594,7 +590,6 @@ int main(int argc, char *argv[])
                         KeyMask = 0;
                         break;
                     }
-                    #endif
                     KeyMask = handy_sdl_on_key_down(handy_sdl_event.key, KeyMask);
                     break;
                 default:

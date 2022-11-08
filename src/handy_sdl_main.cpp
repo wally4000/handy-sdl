@@ -370,7 +370,7 @@ int main(int argc, char *argv[])
 #ifdef DINGUX
     int       bpp = 16;        // dingux has 16 hardcoded
 #else
-    int       bpp = 0;         // BPP -> 8,16 or 32. 0 = autodetect (default)
+    int       bpp = 16;         // BPP -> 8,16 or 32. 0 = autodetect (default)
     int       fsaa = 0;        // OpenGL FSAA (default off)
     int       accel = 1;       // OpenGL Hardware accel (default on)
     int       sync  = 0;       // OpenGL VSYNC (default off)

@@ -32,6 +32,13 @@ extern "C" {
 void sdlemu_init_overlay(SDL_Surface *dst, int overlaytype, int width, int height);
 void sdlemu_close_overlay(void);
 void sdlemu_draw_overlay(SDL_Surface *s, int size, int width, int height);
+void  Convert32bit(SDL_Surface *display);
+void ConvertRGBtoUYVY(SDL_Surface *s, SDL_Overlay *o);
+void ConvertRGBtoYV12(SDL_Surface *s, SDL_Overlay *o);
+void ConvertRGBtoIYUV(SDL_Surface *s, SDL_Overlay *o);
+void ConvertRGBtoYUY2(SDL_Surface *s, SDL_Overlay *o);
+void ConvertRGBtoYVYU(SDL_Surface *s, SDL_Overlay *o);
+void RGBtoYUV(Uint8 *rgb, int *yuv);
 
 #ifdef __cplusplus
 }
